@@ -43,6 +43,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // ResponseRepository repository = ResponseRepository();
 
+  late List<ApiModel> response;
+
 
 
   // Future<List<UserlistModel>> getUsers() async {
@@ -71,15 +73,14 @@ class _MyHomePageState extends State<MyHomePage> {
         builder: (context, snapshot){
           if(snapshot.hasData){
             return Container(
-              // child: ListView.builder(
-              //     itemCount: snapshot.data?.length,
-              //     itemBuilder: (context, index) =>
-              //         MyCardList(id: "${snapshot.data?[index].id}",
-              //             name: "${snapshot.data?[index].dateOfBirth}")
-              // ),
+              child: ListView.builder(
+                  itemCount: snapshot.data?.weather.length,
+                  itemBuilder: (context, index) =>
+                      MyCardList(id: "${snapshot.data?.weather[index].id}",
+                          name: "${snapshot.data?.weather[index].description}")
+              ),
 
-              
-              child: Text(""+snapshot.data?.coord),
+              // child: Text(""+snapshot.data?.weather.),
             );
 
           }
