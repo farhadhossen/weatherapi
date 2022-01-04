@@ -72,6 +72,7 @@ class ApiModel {
   };
 }
 
+
 class Clouds {
   Clouds({
     required this.all,
