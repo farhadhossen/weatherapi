@@ -43,7 +43,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   // ResponseRepository repository = ResponseRepository();
 
-  late List<ApiModel> response;
+
 
 
 
@@ -71,16 +71,20 @@ class _MyHomePageState extends State<MyHomePage> {
       body: FutureBuilder<ApiModel>(
         future: ApiResponse().getApiData(),
         builder: (context, snapshot){
+
           if(snapshot.hasData){
             return Container(
-              child: ListView.builder(
-                  itemCount: snapshot.data?.weather.length,
-                  itemBuilder: (context, index) =>
-                      MyCardList(id: "${snapshot.data?.weather[index].id}",
-                          name: "${snapshot.data?.weather[index].description}")
-              ),
 
-              // child: Text(""+snapshot.data?.weather.),
+              ///it also working
+              // child: ListView.builder(
+              //     itemCount: snapshot.data?.weather.length,
+              //     itemBuilder: (context, index) =>
+              //         MyCardList(id: "${snapshot.data?.weather[index].id}",
+              //             name: "${snapshot.data?.weather[index].description}")
+              // ),
+
+              ///it also
+              child: Text(""+(snapshot.data?.coord.lon).toString()),
             );
 
           }
